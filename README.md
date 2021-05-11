@@ -32,7 +32,9 @@ samples, guidance on mobile development, and a full API reference.
 ## Downloads the dependencies
 - [Download the flutter Packages From pub.dev](https://pub.dev/)
 
-##Dependencies:(ps - just use the pub get commands given in the installation section to get the dependencies automatically in the [pubspec.yaml] file)
+##Dependencies
+(ps - just use the pub get commands given in the installation section to get the dependencies automatically in the [pubspec.yaml] file)
 - Firebase auth
 - Firestore
 - firebase core
+- shared_preferences
