@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/widgets/widget.dart';
 class SignIn extends StatefulWidget {
-  const SignIn({Key key}) : super(key: key);
+  final Function toggle;
+  SignIn(this.toggle);
 
   @override
   _SignInState createState() => _SignInState();
@@ -76,11 +77,19 @@ class _SignInState extends State<SignIn> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't Have an account? ", style: mediumTextStyle(),),
-                    Text("Register Now.", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      decoration: TextDecoration.underline,
-                    ),)
+                    GestureDetector(
+                      onTap: (){
+                        widget.toggle();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 8,),
+                        child: Text("Register Now.", style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          decoration: TextDecoration.underline,
+                        ),),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 100,),

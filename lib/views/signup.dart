@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/services/auth.dart';
+import 'package:g_chat/views/chatRoomsScreen.dart';
 import 'package:g_chat/widgets/widget.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key key}) : super(key: key);
+  final Function toggle;
+  SignUp(this.toggle);
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -27,8 +29,15 @@ class _SignUpState extends State<SignUp> {
         isLoading = true;
       });
 
-      authMethods.signUpwithEmailAndPassword(emailTextEditingController.text, passwordTextEditingController.text).then((value){
-        print("$value");
+      authMethods.signUpwithEmailAndPassword(emailTextEditingController.text,
+          passwordTextEditingController.text).then((value){
+            //print("${value}.uId");
+
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => chatRoom()
+            ));
+
+
       });
     }
   }
@@ -133,11 +142,19 @@ class _SignUpState extends State<SignUp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Already have an account? ", style: mediumTextStyle(),),
-                    Text("Sign In.", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      decoration: TextDecoration.underline,
-                    ),)
+                    GestureDetector(
+                      onTap: (){
+                        widget.toggle();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 8,),
+                        child: Text("Sign In.", style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          decoration: TextDecoration.underline,
+                        ),),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 100,),

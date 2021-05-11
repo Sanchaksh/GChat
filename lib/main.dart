@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_chat/helper/authenticate.dart';
 import 'package:g_chat/views/signin.dart';
 import 'package:g_chat/views/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xff1F1F1F),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignUp(),
+      home: Authenticate(),
     );
   }
 }
