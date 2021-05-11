@@ -26,6 +26,13 @@ class _SearchScreenState extends State<SearchScreen> {
       });
   }
 
+  // Create Chatroom Function, send user for convo
+  createChatroomAndStartConversation(String userName) {
+    List<String> users = [userName, ];
+    databaseMethods.createChatRoom();
+  }
+
+
   Widget searchList() {
     return searchSnapshot != null ? ListView.builder(
         itemCount: searchSnapshot.docs.length,
@@ -118,13 +125,18 @@ class SearchTile extends StatelessWidget {
             ],
           ),
           Spacer(),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(300),
+          GestureDetector(
+            onTap: () {
+
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(300),
+              ),
+              child: Text("Message", style: mediumTextStyle(),),
             ),
-            child: Text("Message", style: mediumTextStyle(),),
           )
         ],
       ),
