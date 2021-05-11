@@ -18,7 +18,10 @@ This is the first view of the application on the Pixel 4a Emulator works same on
 ## Developed the sign in and sign up UI pages for the GChat application.
 ## We have connected the application to firebase and it is receiving the sent data.
 ## We will connect the signin and the sign up pages and then build the chat room service. 
-![Screenshot_1620656809](https://user-images.githubusercontent.com/43877199/117765017-f99be680-b24a-11eb-80ca-df831d54eef0.png)
+![Screenshot_1620656809](https://user-images.githubusercontent.com/43877199/117765017-f99be680-b24a-11eb-80ca-df831d54eef0.png)![Screenshot_2021-05-12-01-59-28-089_com example g_chat](https://user-images.githubusercontent.com/43877199/117880880-39ec7a80-b2c6-11eb-8b8c-8cc97cc4aa43.jpg)
+![Screenshot_2021-05-12-01-59-36-018_com example g_chat](https://user-images.githubusercontent.com/43877199/117880884-3c4ed480-b2c6-11eb-8bff-08e9dfc57c5a.jpg)
+![Screenshot_2021-05-12-01-59-46-768_com example g_chat](https://user-images.githubusercontent.com/43877199/117880891-3d800180-b2c6-11eb-8642-e5c516f43242.jpg)
+
 
 ## Features for the signup page:
 - The username is more than 3 characters.
