@@ -1,3 +1,4 @@
+
 # Gchat -> The Chatting Application
 
 A Flutter project for chatting. I used Android Studio and you can you any editor of your choice for ex: VS Code, IntelliJ, etc.
@@ -19,6 +20,9 @@ This is the first view of the application on the Pixel 4a Emulator works same on
 ## We have connected the application to firebase and it is receiving the sent data.
 ## We will connect the signin and the sign up pages and then build the chat room service. 
 ![Screenshot_1620656809](https://user-images.githubusercontent.com/43877199/117765017-f99be680-b24a-11eb-80ca-df831d54eef0.png)!
+![Screenshot_2021-05-12-01-59-28-089_com example g_chat](https://user-images.githubusercontent.com/43877199/117881261-aa939700-b2c6-11eb-88fc-7bce46e06fce.jpg)
+![Screenshot_2021-05-12-01-59-36-018_com example g_chat](https://user-images.githubusercontent.com/43877199/117881265-abc4c400-b2c6-11eb-95ee-2385760011cc.jpg)
+![Screenshot_2021-05-12-01-59-46-768_com example g_chat](https://user-images.githubusercontent.com/43877199/117881266-ac5d5a80-b2c6-11eb-851c-771d6c131001.jpg)
 
 
 ## Features for the signup page:
