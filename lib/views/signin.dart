@@ -1,8 +1,14 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:g_chat/helper/helperfunctions.dart';
+import 'package:g_chat/services/auth.dart';
+import 'package:g_chat/services/database.dart';
 import 'package:g_chat/widgets/widget.dart';
+
+import 'chatRoomsScreen.dart';
 class SignIn extends StatefulWidget {
   final Function toggle;
   SignIn(this.toggle);
@@ -12,6 +18,43 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+
+  final formKey = GlobalKey<FormState>();
+  AuthMethods authMethods = new AuthMethods();
+  TextEditingController emailTextEditingController = new TextEditingController();
+  TextEditingController passwordTextEditingController = new TextEditingController();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
+
+  bool isLoading = false;
+  QuerySnapshot snapshotUserInfo;
+
+  signIn() {
+    if(formKey.currentState.validate()) {
+
+      HelperFunctions.saveUserEmailSharedPreference(emailTextEditingController.text);
+
+      setState(() {
+        isLoading = true;
+      });
+
+      databaseMethods.getUsersbyUserEmail(emailTextEditingController.text).then((val){
+        snapshotUserInfo = val;
+        HelperFunctions
+            .saveUserEmailSharedPreference(snapshotUserInfo.docs[0].data().toString().substring(snapshotUserInfo.docs[0].data().toString().indexOf(':')));
+      });
+      
+      authMethods.signInWithEmailAndPassword(emailTextEditingController.text, 
+          passwordTextEditingController.text).then((val){
+            if(val != null) {
+              HelperFunctions.saveUserLoggedInSharedPreference(true);
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => chatRoom()
+                  ));
+            }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +68,32 @@ class _SignInState extends State<SignIn> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextField(
-                  style: simpleTextStyle(),
-                  decoration: textFieldInputDecoration("Email Address"), //Modularization
-                ),
-                TextField(
-                  style: simpleTextStyle(),
-                  decoration: textFieldInputDecoration("Password"),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: (val){
+                          return RegExp(
+                              r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                              .hasMatch(val)
+                              ? null : "Please enter correct email";
+                        },
+                        controller: emailTextEditingController,
+                        style: simpleTextStyle(),
+                        decoration: textFieldInputDecoration("Email Address"), //Modularization
+                      ),
+                      TextFormField(
+                        obscureText: true,
+                        validator: (val){
+                          return val.length>6 ? null : "Password length should be more than 6 characters";
+                        },
+                        controller: passwordTextEditingController,
+                        style: simpleTextStyle(),
+                        decoration: textFieldInputDecoration("Password"),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 8,),
                 Container(
@@ -42,20 +104,25 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                 SizedBox(height: 8,),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        const Color(0xff007EF4),
-                        const Color(0xff2A75BC)
-                      ]
+                GestureDetector(
+                  onTap: (){
+                    signIn();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color(0xff007EF4),
+                          const Color(0xff2A75BC)
+                        ]
+                      ),
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                    borderRadius: BorderRadius.circular(30),
+                    child: Text("Sign In", style: mediumTextStyle()),
                   ),
-                  child: Text("Sign In", style: mediumTextStyle()),
                 ),
 
                 SizedBox(height: 16,),

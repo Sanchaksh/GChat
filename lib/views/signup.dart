@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:g_chat/helper/helperfunctions.dart';
 import 'package:g_chat/services/auth.dart';
 import 'package:g_chat/services/database.dart';
 import 'package:g_chat/views/chatRoomsScreen.dart';
@@ -16,7 +17,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
 
   bool isLoading = false;
-
+//Instantiating the classes that have the functions.
   AuthMethods authMethods = new AuthMethods();
   DatabaseMethods databaseMethods = new DatabaseMethods();
 
@@ -27,6 +28,14 @@ class _SignUpState extends State<SignUp> {
 
   signMeUP() {
     if(formKey.currentState.validate()) {
+      Map<String,String> userInfoMap = {
+        "name" : userNameTextEditingController.text,
+        "email": emailTextEditingController.text
+      };
+
+      HelperFunctions.saveUserEmailSharedPreference(emailTextEditingController.text);
+      HelperFunctions.saveUserNameSharedPreference(userNameTextEditingController.text);
+
       setState(() {
         isLoading = true;
       });
@@ -35,19 +44,12 @@ class _SignUpState extends State<SignUp> {
           passwordTextEditingController.text).then((value){
             //print("${value}.uId");
 
-        Map<String,dynamic> userInfoMap = {
-          "name" : userNameTextEditingController.text,
-          "email": emailTextEditingController.text
-        };
-
 
         databaseMethods.uploadUserInfo(userInfoMap);
-
+        HelperFunctions.saveUserLoggedInSharedPreference(true);
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => chatRoom()
             ));
-
-
       });
     }
   }
