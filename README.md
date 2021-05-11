@@ -1,6 +1,6 @@
 # Gchat
 
-A Flutter project for chatting.
+A Flutter project for chatting. I used Android Studio and you can you any editor of your choice for ex: VS Code, IntelliJ, etc.
 
 ## Getting Started
 
@@ -20,7 +20,8 @@ This is the first view of the application on the Pixel 4a Emulator works same on
 - And the password is masked so that other people dont see what you are typing using the function of ObsureText.
 
 ## For Setup look for the links below.
-
+- [Download flutter for any operating system](https://flutter.dev/docs/get-started/install)
+- [Download Android studio](https://developer.android.com/studio)
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
