@@ -19,7 +19,7 @@ class _chatRoomState extends State<chatRoom> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    getUserInfo();
     super.initState();
   }
 
