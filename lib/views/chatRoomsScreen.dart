@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_chat/helper/authenticate.dart';
 import 'package:g_chat/services/auth.dart';
-import 'package:g_chat/views/signin.dart';
-import 'package:g_chat/widgets/widget.dart';
+import 'package:g_chat/views/search.dart';
 
 // ignore: camel_case_types
 class chatRoom extends StatefulWidget {
@@ -34,6 +33,13 @@ class _chatRoomState extends State<chatRoom> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.search),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));
+
+        },
       ),
     );
   }
