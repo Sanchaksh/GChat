@@ -27,3 +27,11 @@ This is the first view of the application on the Pixel 4a Emulator works same on
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Downloads the dependencies
+- [Download the flutter Packages From pub.dev](https://pub.dev/)
+
+##Dependencies:(ps - just use the pub get commands given in the installation section to get the dependencies automatically in the [pubspec.yaml] file)
+- Firebase auth
+- Firestore
+- firebase core
