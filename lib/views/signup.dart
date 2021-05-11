@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/services/auth.dart';
+import 'package:g_chat/services/database.dart';
 import 'package:g_chat/views/chatRoomsScreen.dart';
 import 'package:g_chat/widgets/widget.dart';
 
@@ -17,6 +18,7 @@ class _SignUpState extends State<SignUp> {
   bool isLoading = false;
 
   AuthMethods authMethods = new AuthMethods();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
 
   final formKey = GlobalKey<FormState>();
   TextEditingController userNameTextEditingController = new TextEditingController();
@@ -32,6 +34,14 @@ class _SignUpState extends State<SignUp> {
       authMethods.signUpwithEmailAndPassword(emailTextEditingController.text,
           passwordTextEditingController.text).then((value){
             //print("${value}.uId");
+
+        Map<String,dynamic> userInfoMap = {
+          "name" : userNameTextEditingController.text,
+          "email": emailTextEditingController.text
+        };
+
+
+        databaseMethods.uploadUserInfo(userInfoMap);
 
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => chatRoom()
