@@ -28,4 +28,9 @@ class DatabaseMethods {
   getConversionMessage(String chatRoomId) async {
     return await FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").orderBy("time",descending: false).snapshots();
   }
+
+  getChatRooms(String userName) async {
+    return await FirebaseFirestore.instance.collection("chatRoom").where("users", arrayContains: userName).snapshots();
+  }
+
 }
