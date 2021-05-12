@@ -26,8 +26,8 @@ class _SearchScreenState extends State<SearchScreen> {
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return SearchTile( //No idea how this works but it does LOL
-            userName:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','), searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('{userEmail:', '').replaceAll('userName:', '').replaceAll('{', '').replaceAll(',', ''),
-            userEmail:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'), searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('{email', '').replaceAll('userName:', '').replaceAll('}', '').replaceAll(':', ''),
+            userName:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','), searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('{email: ', '').replaceAll('name:', '').replaceAll('}', '').replaceAll(':', '').replaceAll(',', '').replaceAll('email ', ''),
+            userEmail:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'), searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('{email: ', '').replaceAll('name:', '').replaceAll('}', '').replaceAll(':', ''),
           );
         }) : Container();
   }

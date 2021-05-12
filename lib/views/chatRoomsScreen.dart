@@ -24,9 +24,14 @@ class _chatRoomState extends State<chatRoom> {
   
   Widget chatRoomList() {
     return StreamBuilder(stream: chatRoomsStream,builder: (context, snapshot){
-      return snapshot.hasData ? ListView.builder(itemCount:snapshot.data.docs.length, itemBuilder: (context, index) {
+      return snapshot.hasData ?
+      ListView.builder(
+          itemCount:snapshot.data.docs.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
         return chatRoomsTile(
-          snapshot.data.docs[index].data()["chatRoomId"].toString().replaceAll("_","").replaceAll(Constants.myName, ""), snapshot.data.docs[index].data()["chatRoomId"]
+          userName: snapshot.data.docs[index].data()["chatRoomId"].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
+            chatRoomId: snapshot.data.docs[index].data()["chatRoomId"],
         );
       }) : Container();
     });
@@ -81,7 +86,7 @@ class _chatRoomState extends State<chatRoom> {
 class chatRoomsTile extends StatelessWidget {
   final String userName;
   final String chatRoomId;
-  chatRoomsTile(this.userName, this.chatRoomId);
+  chatRoomsTile({this.userName, @required this.chatRoomId});
 
   @override
   Widget build(BuildContext context) {
