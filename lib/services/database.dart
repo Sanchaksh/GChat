@@ -14,8 +14,18 @@ class DatabaseMethods {
     FirebaseFirestore.instance.collection("users").add(userMap);
   }
   createChatRoom(String chatRoomId, chatRoomMap) {
-    FirebaseFirestore.instance.collection("ChatRoom").doc(chatRoomId).set(chatRoomMap).catchError((e){
+    FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).set(chatRoomMap).catchError((e){
       print(e.toString());
     });
+  }
+
+  addConversionMessage(String chatRoomId, messageMap) {
+    FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").add(messageMap).catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  getConversionMessage(String chatRoomId) async {
+    return await FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").orderBy("time",descending: false).snapshots();
   }
 }

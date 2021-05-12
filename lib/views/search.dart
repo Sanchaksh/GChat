@@ -53,7 +53,9 @@ class _SearchScreenState extends State<SearchScreen> {
         "chatroomId": chatRoomId
       };
       databaseMethods.createChatRoom(chatRoomId, chatRoomMap);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationSceen()
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationSceen(
+        chatRoomId
+      )
       ));
     } else {
       print("Khudko message karoge kya pagal bande ho?");
