@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:g_chat/views/chatRoomsScreen.dart';
 
 class DatabaseMethods {
   getUsersbyUsername(String username) async {
@@ -11,22 +10,24 @@ class DatabaseMethods {
   }
 
   uploadUserInfo(userMap) {
-    FirebaseFirestore.instance.collection("users").add(userMap);
+    FirebaseFirestore.instance.collection("users").add(userMap).catchError((e){
+      print(e.toString());
+    });
   }
-  createChatRoom(String chatRoomId, chatRoomMap) {
+  Future <void> createChatRoom(chatRoomId, chatRoomMap) {
     FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).set(chatRoomMap).catchError((e){
       print(e.toString());
     });
   }
 
-  addConversionMessage(String chatRoomId, messageMap) {
+  Future <void> addConversionMessage(String chatRoomId, messageMap) {
     FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").add(messageMap).catchError((e) {
       print(e.toString());
     });
   }
 
   getConversionMessage(String chatRoomId) async {
-    return await FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").orderBy("time",descending: false).snapshots();
+    return await FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").orderBy("time").snapshots();
   }
 
   getChatRooms(String userName) async {
