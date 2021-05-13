@@ -7,6 +7,10 @@ A Flutter project for chatting. I used Android Studio and you can you any editor
 
 This part is a starting point for this Flutter application.
 
+The application can be tested by USB debugging option or you can download and use an emulator.
+
+Use the test folder file for testing the application.
+
 ## A few resources to get you started if this is your first Flutter project:
 For Setup look for the links below.
 - [Download flutter for any operating system](https://flutter.dev/docs/get-started/install)
