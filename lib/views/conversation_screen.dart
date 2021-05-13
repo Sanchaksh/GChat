@@ -139,4 +139,3 @@ class MessageTile extends StatelessWidget {
     );
   }
 }
-
