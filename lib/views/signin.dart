@@ -42,15 +42,15 @@ class _SignInState extends State<SignIn> {
         HelperFunctions
             .saveUserNameSharedPreference(snapshotUserInfo.docs[0].data().toString().substring(snapshotUserInfo.docs[0].data().toString().indexOf(':')));
       });
-      
-      authMethods.signInWithEmailAndPassword(emailTextEditingController.text, 
+
+      authMethods.signInWithEmailAndPassword(emailTextEditingController.text,
           passwordTextEditingController.text).then((val){
-            if(val != null) {
-              HelperFunctions.saveUserLoggedInSharedPreference(true);
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => chatRoom()
-                  ));
-            }
+        if(val != null) {
+          HelperFunctions.saveUserLoggedInSharedPreference(true);
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => chatRoom()
+              ));
+        }
       });
     }
   }
@@ -101,8 +101,8 @@ class _SignInState extends State<SignIn> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text("Forgot Password?", style: simpleTextStyle(),),
-                    ),
                   ),
+                ),
                 SizedBox(height: 8,),
                 GestureDetector(
                   onTap: (){
@@ -114,10 +114,10 @@ class _SignInState extends State<SignIn> {
                     padding: EdgeInsets.symmetric(vertical: 20),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [
-                          const Color(0xff007EF4),
-                          const Color(0xff2A75BC)
-                        ]
+                          colors: [
+                            const Color(0xff007EF4),
+                            const Color(0xff2A75BC)
+                          ]
                       ),
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -133,7 +133,7 @@ class _SignInState extends State<SignIn> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
-                    ),
+                  ),
                   child: Text("Sign In with Google", style: TextStyle(
                     color: Colors.black87,
                     fontSize: 20,

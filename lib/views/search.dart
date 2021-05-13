@@ -38,8 +38,8 @@ class _SearchScreenState extends State<SearchScreen> {
       setState(() {
         searchSnapshot = val;
       });
-     // print(val.toString());
-      });
+      // print(val.toString());
+    });
   }
 
   // Create Chatroom Function, send user for convo
@@ -54,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
       };
       databaseMethods.createChatRoom(chatRoomId, chatRoomMap);
       Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationSceen(
-        chatRoomId
+          chatRoomId : chatRoomId
       )
       ));
     } else {
@@ -97,7 +97,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void initState() {
-   initiateSearch();
+    initiateSearch();
     super.initState();
   }
 
@@ -113,32 +113,32 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Row(
                 children: [
                   Expanded(
-                      child: TextField(
-                        controller: searchTextEditingController,
-                        decoration: InputDecoration(
-                          hintText: "Search...",
-                          hintStyle: TextStyle(
-                            color: Colors.white54,
-                          ),
-                          border: InputBorder.none,
+                    child: TextField(
+                      controller: searchTextEditingController,
+                      decoration: InputDecoration(
+                        hintText: "Search...",
+                        hintStyle: TextStyle(
+                          color: Colors.white54,
                         ),
+                        border: InputBorder.none,
                       ),
+                    ),
                   ),
                   GestureDetector(
                     onTap: (){
                       initiateSearch();
                     },
                     child: Container(
-                      height: 40,
+                        height: 40,
                         width: 50,
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              const Color(0x36FFFFFF),
-                              const Color(0x0FFFFFFF),
-                            ]
-                          ),
-                              borderRadius: BorderRadius.circular(40)
+                            gradient: LinearGradient(
+                                colors: [
+                                  const Color(0x36FFFFFF),
+                                  const Color(0x0FFFFFFF),
+                                ]
+                            ),
+                            borderRadius: BorderRadius.circular(40)
                         ),
                         padding: EdgeInsets.all(10),
                         child: Image.asset("assets/images/search_white.png")

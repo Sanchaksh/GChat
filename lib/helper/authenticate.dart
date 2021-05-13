@@ -3,19 +3,16 @@ import 'package:g_chat/views/signin.dart';
 import 'package:g_chat/views/signup.dart';
 
 class Authenticate extends StatefulWidget {
-  const Authenticate({Key key}) : super(key: key);
-
   @override
   _AuthenticateState createState() => _AuthenticateState();
 }
 
 class _AuthenticateState extends State<Authenticate> {
-
   bool showSignIn = true;
 
   void toggleView(){
     setState(() {
-      showSignIn = !showSignIn;
+      showSignIn =! showSignIn;
     });
   }
 

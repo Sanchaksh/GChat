@@ -42,13 +42,13 @@ class _SignUpState extends State<SignUp> {
 
       authMethods.signUpwithEmailAndPassword(emailTextEditingController.text,
           passwordTextEditingController.text).then((value){
-            //print("${value}.uId");
+        //print("${value}.uId");
 
 
         databaseMethods.uploadUserInfo(userInfoMap);
         HelperFunctions.saveUserLoggedInSharedPreference(true);
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => chatRoom()
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => chatRoom()
             ));
       });
     }
@@ -85,9 +85,9 @@ class _SignUpState extends State<SignUp> {
                       TextFormField(
                         validator: (val){
                           return RegExp(
-                            r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                                .hasMatch(val)
-                                ? null : "Please enter correct email";
+                              r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                              .hasMatch(val)
+                              ? null : "Please enter correct email";
                         },
                         controller: emailTextEditingController,
                         style: simpleTextStyle(),
