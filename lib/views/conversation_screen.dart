@@ -5,15 +5,15 @@ import 'package:g_chat/helper/constants.dart';
 import 'package:g_chat/services/database.dart';
 import 'package:g_chat/widgets/widget.dart';
 
-class ConversationSceen extends StatefulWidget {
+class ConversationScreen extends StatefulWidget {
   final String chatRoomId;
-  ConversationSceen({this.chatRoomId});
+  ConversationScreen({this.chatRoomId});
 
   @override
-  _ConversationSceenState createState() => _ConversationSceenState();
+  _ConversationScreenState createState() => _ConversationScreenState();
 }
 
-class _ConversationSceenState extends State<ConversationSceen> {
+class _ConversationScreenState extends State<ConversationScreen> {
 
   TextEditingController messageController = new TextEditingController();
 
