@@ -45,3 +45,4 @@ samples, guidance on mobile development, and a full API reference.
 - Firestore
 - firebase core
 - shared_preferences
+- google_signIn_flutter
