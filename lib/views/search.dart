@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/helper/constants.dart';
 import 'package:g_chat/services/database.dart';
+import 'package:g_chat/views/chatRoomsScreen.dart';
 import 'package:g_chat/widgets/widget.dart';
-
 import 'conversation_screen.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -17,52 +17,59 @@ class _SearchScreenState extends State<SearchScreen> {
 
   DatabaseMethods databaseMethods = new DatabaseMethods();
   TextEditingController searchTextEditingController = new TextEditingController();
-
   QuerySnapshot searchSnapshot;
 
+  bool isLoading = false;
+  bool haveUserSearched = false;
+
+  initiateSearch() async {
+    if(searchTextEditingController.text.isNotEmpty)
+      setState(() {
+        isLoading = true;
+      });
+    await databaseMethods.getUsersbyUsername(searchTextEditingController.text).then((snapshot){
+      setState(() {
+        searchSnapshot = snapshot;
+        print("$searchSnapshot");
+        setState(() {
+          isLoading = false;
+          haveUserSearched = true;
+        });
+      });
+    });
+  }
+
   Widget searchList() {
-    return searchSnapshot != null ? ListView.builder(
-        itemCount: searchSnapshot.docs.length,
+    return haveUserSearched ? ListView.builder(
         shrinkWrap: true,
+        itemCount: searchSnapshot.docs.length,
         itemBuilder: (context, index) {
           return SearchTile( //No idea how this works but it does LOL
-            userName:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','), searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('{email: ', '').replaceAll('name:', '').replaceAll('}', '').replaceAll(':', '').replaceAll(',', '').replaceAll('email ', ''),
-            userEmail:  searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'), searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('{email: ', '').replaceAll('name:', '').replaceAll('}', '').replaceAll(':', ''),
+            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','), searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('{userEmail:', '').replaceAll('userName:', '').replaceAll('}', '').replaceAll(',', ''),
+            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'), searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('{userEmail:', '').replaceAll('userName:', '').replaceAll('}', '').replaceAll(':', ''),
           );
         }) : Container();
   }
 
 
-  initiateSearch() {
-    databaseMethods.getUsersbyUsername(searchTextEditingController.text).then((val){
-      setState(() {
-        searchSnapshot = val;
-      });
-      // print(val.toString());
-    });
-  }
-
   // Create Chatroom Function, send user for convo
-  createChatroomAndStartConversation({String userName}) {
-    if(userName != Constants.myName) {
-      String chatRoomId = getChatRoomId(userName, Constants.myName);
+  createChatroomAndStartConversation(String userName) {
 
-      List<String> users = [userName, Constants.myName];
-      Map<String, dynamic> chatRoomMap = {
+    List<String> users = [Constants.myName, userName];
+    String chatRoomId = getChatRoomId(Constants.myName, userName);
+
+    Map<String, dynamic> chatRoomMap = {
         "users": users,
         "chatroomId": chatRoomId
       };
       databaseMethods.createChatRoom(chatRoomId, chatRoomMap);
       Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(
-          chatRoomId : chatRoomId
+          chatRoomId : chatRoomId,
       )
       ));
-    } else {
-      print("Khudko message karoge kya pagal bande ho?");
     }
-  }
 
-  Widget SearchTile({String userName, String userEmail}) {
+  Widget SearchTile(String userName, String userEmail) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: Row(
@@ -77,9 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              createChatroomAndStartConversation(
-                userName: userName,
-              );
+              createChatroomAndStartConversation(userName);
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),

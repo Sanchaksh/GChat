@@ -15,16 +15,17 @@ class ConversationScreen extends StatefulWidget {
 
 class _ConversationScreenState extends State<ConversationScreen> {
 
-  TextEditingController messageController = new TextEditingController();
-
   Stream <QuerySnapshot> chatMessageStream ;
+  TextEditingController messageController = new TextEditingController();
 
   Widget ChatMessageList() {
     return StreamBuilder(stream: chatMessageStream, builder: (context, snapshot) {
-      return snapshot.hasData ? ListView.builder(itemCount: snapshot.data.docs.length, itemBuilder: (context, index){
+      return snapshot.hasData ? ListView.builder(itemCount: snapshot.data.docs.length,
+          itemBuilder: (context, index){
         return MessageTile(
             message: snapshot.data.docs[index].data()["message"],
-            isSendByMe: snapshot.data.docs[index].data()["sendBy"] == Constants.myName);
+            isSendByMe: Constants.myName == snapshot.data.docs[index].data()["sendBy"]
+        );
       }) : Container();
     });
   }
@@ -35,7 +36,9 @@ class _ConversationScreenState extends State<ConversationScreen> {
       Map<String, dynamic> messageMap = {
         "message": messageController.text,
         "sendBy": Constants.myName,
-        "time": DateTime.now().millisecondsSinceEpoch
+        "time": DateTime
+            .now()
+            .millisecondsSinceEpoch
       };
       DatabaseMethods().addConversionMessage(widget.chatRoomId, messageMap);
       setState(() {

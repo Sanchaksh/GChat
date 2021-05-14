@@ -1,4 +1,4 @@
 class appUse {
-  String userId;
-  appUse({this.userId});
+  String uId;
+  appUse({this.uId});
 }

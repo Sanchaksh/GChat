@@ -29,7 +29,7 @@ class _chatRoomState extends State<chatRoom> {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return chatRoomsTile(
-              userName: snapshot.data.docs[index].data()["chatRoomId"].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
+              userName: snapshot.data.docs[index].data()['chatRoomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
               chatRoomId: snapshot.data.docs[index].data()["chatRoomId"],
             );
           }) : Container();
@@ -58,6 +58,8 @@ class _chatRoomState extends State<chatRoom> {
       appBar: AppBar(
         title: Image.asset("assets/images/logo.png",
           height: 50,),
+        elevation: 0.0,
+        centerTitle: false,
         actions: [
           GestureDetector(
               onTap: (){
@@ -95,6 +97,7 @@ class chatRoomsTile extends StatelessWidget {
         );
       },
       child: Container(
+        color: Colors.black26,
         padding: EdgeInsets.symmetric(horizontal: 24,vertical: 16),
         child: Row(
           children: [
