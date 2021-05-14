@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/helper/constants.dart';
 import 'package:g_chat/services/database.dart';
-import 'package:g_chat/views/chatRoomsScreen.dart';
 import 'package:g_chat/widgets/widget.dart';
 import 'conversation_screen.dart';
 
@@ -52,19 +51,19 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
 
-  // Create Chatroom Function, send user for convo
-  createChatroomAndStartConversation(String userName) {
+  // Create Chatroom Function, send user for conversation
 
+  createChatroomAndStartConversation(String userName) {
     List<String> users = [Constants.myName, userName];
-    String chatRoomId = getChatRoomId(Constants.myName, userName);
+    String chatroomId = getChatRoomId(Constants.myName, userName);
 
     Map<String, dynamic> chatRoomMap = {
         "users": users,
-        "chatroomId": chatRoomId
+        "chatroomId": chatroomId
       };
-      databaseMethods.createChatRoom(chatRoomId, chatRoomMap);
+      databaseMethods.createChatRoom(chatroomId, chatRoomMap);
       Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(
-          chatRoomId : chatRoomId,
+          chatroomId : chatroomId,
       )
       ));
     }
@@ -165,7 +164,7 @@ getChatRoomId(String a, String b) {
   if(a.substring(0,1).codeUnitAt(0) > b.substring(0,1).codeUnitAt(0)) {
     return "$b\_$a";
   }else {
-    return "$a \_ $b";
+    return "$a\_$b";
   }
 }
 

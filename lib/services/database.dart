@@ -14,8 +14,8 @@ class DatabaseMethods {
       print(e.toString());
     });
   }
-  Future <void> createChatRoom(chatRoomId, chatRoomMap) {
-    FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).set(chatRoomMap).catchError((e){
+  Future <void> createChatRoom(chatroomId, chatRoomMap) {
+    FirebaseFirestore.instance.collection("chatRoom").doc(chatroomId).set(chatRoomMap).catchError((e){
       print(e.toString());
     });
   }
@@ -26,8 +26,8 @@ class DatabaseMethods {
     });
   }
 
-  getConversionMessage(String chatRoomId) async {
-    return await FirebaseFirestore.instance.collection("chatRoom").doc(chatRoomId).collection("chats").orderBy("time").snapshots();
+  getConversionMessage(String chatroomId) async {
+    return await FirebaseFirestore.instance.collection("chatRoom").doc(chatroomId).collection("chats").orderBy("time").snapshots();
   }
 
   getChatRooms(String userName) async {

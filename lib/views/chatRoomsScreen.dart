@@ -29,8 +29,8 @@ class _chatRoomState extends State<chatRoom> {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return chatRoomsTile(
-              userName: snapshot.data.docs[index].data()['chatRoomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
-              chatRoomId: snapshot.data.docs[index].data()["chatRoomId"],
+              userName: snapshot.data.docs[index].data()['chatroomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
+              chatRoomId: snapshot.data.docs[index].data()["chatroomId"],
             );
           }) : Container();
     },
@@ -93,11 +93,11 @@ class chatRoomsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(chatRoomId : chatRoomId))
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(chatroomId : chatRoomId))
         );
       },
       child: Container(
-        color: Colors.black26,
+        color: Colors.black26 ,
         padding: EdgeInsets.symmetric(horizontal: 24,vertical: 16),
         child: Row(
           children: [

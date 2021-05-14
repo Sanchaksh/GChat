@@ -6,8 +6,8 @@ import 'package:g_chat/services/database.dart';
 import 'package:g_chat/widgets/widget.dart';
 
 class ConversationScreen extends StatefulWidget {
-  final String chatRoomId;
-  ConversationScreen({this.chatRoomId});
+  final String chatroomId;
+  ConversationScreen({this.chatroomId});
 
   @override
   _ConversationScreenState createState() => _ConversationScreenState();
@@ -40,7 +40,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
             .now()
             .millisecondsSinceEpoch
       };
-      DatabaseMethods().addConversionMessage(widget.chatRoomId, messageMap);
+      DatabaseMethods().addConversionMessage(widget.chatroomId, messageMap);
       setState(() {
         messageController.text = "";
       });
@@ -49,7 +49,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
 
   @override
   void initState() {
-    DatabaseMethods().getConversionMessage(widget.chatRoomId).then((value){
+    DatabaseMethods().getConversionMessage(widget.chatroomId).then((value){
       setState(() {
         chatMessageStream = value;
       });
