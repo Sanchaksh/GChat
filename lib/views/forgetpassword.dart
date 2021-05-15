@@ -63,7 +63,7 @@ class _ResetPassState extends State<ResetPass> {
                       child: Column(
                         children: <Widget>[
                           Text(
-                            "",
+                            "Please enter your registered email to reset your password",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w300,
