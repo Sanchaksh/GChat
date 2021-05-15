@@ -117,7 +117,7 @@ class _ResetPassState extends State<ResetPass> {
                             borderRadius:
                             BorderRadius.all(Radius.circular(30))),
                         child: Text(
-                          "",
+                          "Send Reset Password Link",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Color(0xff071930),
