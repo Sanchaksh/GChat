@@ -133,7 +133,9 @@ class MessageTile extends StatelessWidget {
             gradient: LinearGradient(
                 colors: isSendByMe ? [const Color(0xff007EF4), const Color(0xff2A75BC)] : [const Color(0x1AFFFFFF), const Color(0x1AFFFFFF)],
           ),
-          borderRadius: isSendByMe ? BorderRadius.only(topLeft: Radius.circular(23), topRight: Radius.circular(23), bottomLeft: Radius.circular(23)) : BorderRadius.only(topLeft: Radius.circular(23), topRight: Radius.circular(23), bottomRight: Radius.circular(23))
+          borderRadius: isSendByMe ? BorderRadius
+              .only(topLeft: Radius.circular(23), topRight: Radius.circular(23), bottomLeft: Radius.circular(23))
+              : BorderRadius.only(topLeft: Radius.circular(23), topRight: Radius.circular(23), bottomRight: Radius.circular(23))
       ),
       child: Text(message, style: TextStyle(
         color: Colors.white,
