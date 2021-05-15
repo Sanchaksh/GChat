@@ -133,7 +133,7 @@ class _ResetPassState extends State<ResetPass> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "",
+                          "Continue Login?",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         SizedBox(
