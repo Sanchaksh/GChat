@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/helper/helperfunctions.dart';
@@ -27,7 +28,7 @@ class _SignInState extends State<SignIn> {
 
   bool isLoading = false;
   QuerySnapshot snapshotUserInfo;
-
+//signIn
   signIn() {
     if(formKey.currentState.validate()) {
 
@@ -126,18 +127,23 @@ class _SignInState extends State<SignIn> {
                 ),
 
                 SizedBox(height: 16,),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Text("Sign In with Google", style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                  ),),
+                GestureDetector(
+                  onTap: () async {
+                    await authMethods.signInWithGoogle(context);
+                  },
+                  child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Text("Sign In with Google", style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 20,
+                      ),),
+                    ),
                 ),
                 SizedBox(height: 16,),
                 Row(
