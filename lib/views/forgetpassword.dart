@@ -116,7 +116,14 @@ class _ResetPassState extends State<ResetPass> {
                             color: Colors.white,
                             borderRadius:
                             BorderRadius.all(Radius.circular(30))),
-
+                        child: Text(
+                          "",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color(0xff071930),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17),
+                        ),
                       ),
                     ),
                     SizedBox(
