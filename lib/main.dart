@@ -42,9 +42,9 @@ class _MyAppState extends State<MyApp> {
       title: 'GChat: Chat up',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xff145C9E),
+        primaryColor: Colors.purple,
         primarySwatch: Colors.green,
-        scaffoldBackgroundColor: Color(0xff1F1F1F),
+        scaffoldBackgroundColor: Colors.black54,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: userIsLoggedIn != null ? userIsLoggedIn ? chatRoom() : Authenticate() : Container(
