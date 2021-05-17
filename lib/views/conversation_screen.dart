@@ -124,6 +124,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
 class MessageTile extends StatelessWidget {
   final String message;
   final bool isSendByMe;
+
   MessageTile({@ required this.message, @required this.isSendByMe});
 
   @override
