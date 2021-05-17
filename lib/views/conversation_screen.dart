@@ -15,11 +15,13 @@ class ConversationScreen extends StatefulWidget {
 
 class _ConversationScreenState extends State<ConversationScreen> {
 
-  Stream <QuerySnapshot> chatMessageStream ;
+  Stream <QuerySnapshot> chatMessageStream;
   TextEditingController messageController = new TextEditingController();
 
   Widget ChatMessageList() {
-    return StreamBuilder(stream: chatMessageStream, builder: (context, snapshot) {
+    return StreamBuilder(
+        stream: chatMessageStream,
+        builder: (context, snapshot) {
       return snapshot.hasData ? ListView.builder(itemCount: snapshot.data.docs.length,
           itemBuilder: (context, index){
         return MessageTile(
