@@ -19,7 +19,6 @@ class _chatRoomState extends State<chatRoom> {
 
   Stream chatRoomsStream;
   AuthMethods authMethods = new AuthMethods();
-  DatabaseMethods databaseMethods = new DatabaseMethods();
 
   Widget chatRoomList() {
     return StreamBuilder(stream: chatRoomsStream,builder: (context, snapshot){
@@ -30,17 +29,11 @@ class _chatRoomState extends State<chatRoom> {
           itemBuilder: (context, index) {
             return chatRoomsTile(
               userName: snapshot.data.docs[index].data()['chatroomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
-              chatRoomId: snapshot.data.docs[index].data()["chatroomId"],
+              chatroomId: snapshot.data.docs[index].data()['chatroomId'],
             );
           }) : Container();
     },
     );
-  }
-
-  @override
-  void initState() {
-    getUserInfo();
-    super.initState();
   }
 
   getUserInfo() async {
@@ -50,6 +43,12 @@ class _chatRoomState extends State<chatRoom> {
         chatRoomsStream = snapshots;
       });
     });
+  }
+
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
   }
 
   @override
@@ -86,14 +85,14 @@ class _chatRoomState extends State<chatRoom> {
 
 class chatRoomsTile extends StatelessWidget {
   final String userName;
-  final String chatRoomId;
-  chatRoomsTile({this.userName, @required this.chatRoomId});
+  final String chatroomId;
+  chatRoomsTile({this.userName, @required this.chatroomId});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(chatroomId : chatRoomId))
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(chatroomId : chatroomId))
         );
       },
       child: Container(
@@ -119,4 +118,3 @@ class chatRoomsTile extends StatelessWidget {
     );
   }
 }
-
