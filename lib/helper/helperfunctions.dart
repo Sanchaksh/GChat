@@ -6,14 +6,14 @@ class HelperFunctions {
   static String sharedPreferenceUserEmailKey = "USEREMAILKEY";
 
   //Saving data to shared Preference
-  static Future<bool> saveUserLoggedInSharedPreference(bool isUserLoggedIn) async {
+  static Future<bool> saveUserLoggedInSharedPreference(bool isLoggedIn) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return await prefs.setBool(sharedPreferenceUserLoggedInKey, isUserLoggedIn);
+    return await prefs.setBool(sharedPreferenceUserLoggedInKey, isLoggedIn);
   }
 
-  static Future<bool> saveUserNameSharedPreference(String userName) async {
+  static Future<bool> saveUserNameSharedPreference(String name) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return await prefs.setString(sharedPreferenceUserNameKey, userName);
+    return await prefs.setString(sharedPreferenceUserNameKey, name);
   }
   static Future<bool> saveUserEmailSharedPreference(String userEmail) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
