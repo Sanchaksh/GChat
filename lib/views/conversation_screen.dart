@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:g_chat/helper/constants.dart';
 import 'package:g_chat/services/database.dart';
 import 'package:g_chat/widgets/widget.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class ConversationScreen extends StatefulWidget {
   final String chatroomId;
@@ -19,6 +18,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
   Stream <QuerySnapshot> chatMessageStream;
   TextEditingController messageController = new TextEditingController();
 
+  // ignore: non_constant_identifier_names
   Widget ChatMessageList() {
     return StreamBuilder(
         stream: chatMessageStream,
