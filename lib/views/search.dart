@@ -37,6 +37,13 @@ class _SearchScreenState extends State<SearchScreen> {
       });
     });
   }
+  getChatRoomId(String a, String b) {
+    if(a.substring(0,1).codeUnitAt(0) > b.substring(0,1).codeUnitAt(0)) {
+      return "$b\_$a";
+    }else {
+      return "$a\_$b";
+    }
+  }
 
   Widget searchList() {
     return haveUserSearched ? ListView.builder(
@@ -44,8 +51,10 @@ class _SearchScreenState extends State<SearchScreen> {
         itemCount: searchSnapshot.docs.length,
         itemBuilder: (context, index) {
           return SearchTile( //No idea how this works but it does LOL
-            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','), searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('{userEmail:', '').replaceAll('userName:', '').replaceAll('}', '').replaceAll(',', ''),
-            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'), searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('{userEmail:', '').replaceAll('userName:', '').replaceAll('}', '').replaceAll(':', ''),
+            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','),
+                searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('email: ', '').replaceAll('}', '').replaceAll(',', ''),
+            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'),
+                searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('name: ', '').replaceAll('}', '').replaceAll(':', ''),
           );
         }) : Container();
   }
@@ -59,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     Map<String, dynamic> chatRoomMap = {
         "users": users,
-        "chatroomId": chatroomId
+        "chatroomId": chatroomId,
       };
       databaseMethods.createChatRoom(chatroomId, chatRoomMap);
       Navigator.push(context, MaterialPageRoute(builder: (context) => ConversationScreen(
@@ -119,12 +128,13 @@ class _SearchScreenState extends State<SearchScreen> {
                   Expanded(
                     child: TextField(
                       controller: searchTextEditingController,
+                      style: simpleTextStyle(),
                       decoration: InputDecoration(
                         hintText: "Search...",
                         hintStyle: TextStyle(
-                          color: Colors.white54,
+                          color: Colors.white,
                         ),
-                        border: InputBorder.none,
+                        border: InputBorder.none
                       ),
                     ),
                   ),
@@ -159,12 +169,3 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
 }
-
-getChatRoomId(String a, String b) {
-  if(a.substring(0,1).codeUnitAt(0) > b.substring(0,1).codeUnitAt(0)) {
-    return "$b\_$a";
-  }else {
-    return "$a\_$b";
-  }
-}
-
