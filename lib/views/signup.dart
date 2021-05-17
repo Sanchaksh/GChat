@@ -105,7 +105,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
-                SizedBox(height: 8,),
+                SizedBox(height: 20,),
                 GestureDetector(
                   onTap: (){
                     signMeUP();
