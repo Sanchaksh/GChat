@@ -115,12 +115,7 @@ class _SignUpState extends State<SignUp> {
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.symmetric(vertical: 20),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            const Color(0xff007EF4),
-                            const Color(0xff2A75BC)
-                          ]
-                      ),
+                      color: Colors.purpleAccent,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Text("Sign Up", style: mediumTextStyle()),
@@ -133,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text("Sign Up with Google", style: TextStyle(
