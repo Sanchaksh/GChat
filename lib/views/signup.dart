@@ -106,14 +106,6 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(height: 8,),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: Text("Forgot Password?", style: simpleTextStyle(),),
-                  ),
-                ),
-                SizedBox(height: 8,),
                 GestureDetector(
                   onTap: (){
                     signMeUP();
