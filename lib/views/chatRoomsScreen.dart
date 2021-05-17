@@ -21,14 +21,16 @@ class _chatRoomState extends State<chatRoom> {
   AuthMethods authMethods = new AuthMethods();
 
   Widget chatRoomList() {
-    return StreamBuilder(stream: chatRoomsStream,builder: (context, snapshot){
+    return StreamBuilder(
+      stream: chatRoomsStream,
+      builder: (context, snapshot){
       return snapshot.hasData
           ? ListView.builder(
           itemCount:snapshot.data.docs.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return chatRoomsTile(
-              userName: snapshot.data.docs[index].data()['chatroomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
+              name: snapshot.data.docs[index].data()['chatroomId'].toString().replaceAll("_","").replaceAll(Constants.myName, ""),
               chatroomId: snapshot.data.docs[index].data()['chatroomId'],
             );
           }) : Container();
@@ -36,19 +38,20 @@ class _chatRoomState extends State<chatRoom> {
     );
   }
 
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
+  }
+
   getUserInfo() async {
     Constants.myName = await HelperFunctions.getUserNameSharedPreference();
     DatabaseMethods().getChatRooms(Constants.myName).then((snapshots){
       setState(() {
         chatRoomsStream = snapshots;
+        print("we got the data + ${chatRoomsStream.toString()} this is name  ${Constants.myName}");
       });
     });
-  }
-
-  @override
-  void initState() {
-    getUserInfo();
-    super.initState();
   }
 
   @override
@@ -84,9 +87,9 @@ class _chatRoomState extends State<chatRoom> {
 }
 
 class chatRoomsTile extends StatelessWidget {
-  final String userName;
+  final String name;
   final String chatroomId;
-  chatRoomsTile({this.userName, @required this.chatroomId});
+  chatRoomsTile({this.name, @required this.chatroomId});
 
   @override
   Widget build(BuildContext context) {
@@ -108,10 +111,10 @@ class chatRoomsTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(40),
                 color: Colors.green,
               ),
-              child: Text("${userName.substring(0, 1).toUpperCase()}", style: mediumTextStyle(),),
+              child: Text(name.substring(0, 1), style: mediumTextStyle(),),
             ),
             SizedBox(width: 8,),
-            Text(userName, style: mediumTextStyle(),)
+            Text(name, style: mediumTextStyle(),)
           ],
         ),
       ),
