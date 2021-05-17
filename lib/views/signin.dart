@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:g_chat/helper/helperfunctions.dart';
 import 'package:g_chat/services/auth.dart';
 import 'package:g_chat/services/database.dart';
+import 'package:g_chat/views/forgetpassword.dart';
 import 'package:g_chat/widgets/widget.dart';
 
 import 'chatRoomsScreen.dart';
@@ -96,9 +97,13 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 SizedBox(height: 8,),
-                Container(
-                  alignment: Alignment.centerRight,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ResetPass()));
+                  },
                   child: Container(
+                    alignment: Alignment.centerRight,
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text("Forgot Password?", style: simpleTextStyle(),),
                   ),
