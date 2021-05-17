@@ -19,7 +19,7 @@ class _ResetPassState extends State<ResetPass> {
           Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [const Color(0xff213A50), const Color(0xff071930)],
+                    colors: [ Colors.black26, Colors.black12],
                     begin: FractionalOffset.topLeft,
                     end: FractionalOffset.bottomRight)),
           ),
@@ -39,7 +39,7 @@ class _ResetPassState extends State<ResetPass> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Flutter",
+                            "G",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
