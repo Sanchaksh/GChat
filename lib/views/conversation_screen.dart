@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:g_chat/helper/constants.dart';
 import 'package:g_chat/services/database.dart';
 import 'package:g_chat/widgets/widget.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class ConversationScreen extends StatefulWidget {
   final String chatroomId;
@@ -69,8 +70,10 @@ class _ConversationScreenState extends State<ConversationScreen> {
             ChatMessageList(),
             Container(
               alignment: Alignment.bottomCenter,
+              width: MediaQuery.of(context).size.width,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                color: Colors.black12,
                 child: Row(
                   children: [
                     Expanded(
@@ -86,6 +89,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                         ),
                       ),
                     ),
+                    SizedBox(width: 16,),
                     GestureDetector(
                       onTap: (){
                         sendMessage();
