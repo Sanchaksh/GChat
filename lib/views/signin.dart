@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_chat/helper/helperfunctions.dart';
@@ -114,12 +113,7 @@ class _SignInState extends State<SignIn> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.symmetric(vertical: 20),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            const Color(0xff007EF4),
-                            const Color(0xff2A75BC)
-                          ]
-                      ),
+                      color: Colors.purpleAccent,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Text("Sign In", style: mediumTextStyle()),
@@ -136,7 +130,7 @@ class _SignInState extends State<SignIn> {
                       alignment: Alignment.center,
                       padding: EdgeInsets.symmetric(vertical: 20),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.blueAccent,
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Text("Sign In with Google", style: TextStyle(
