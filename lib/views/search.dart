@@ -50,11 +50,9 @@ class _SearchScreenState extends State<SearchScreen> {
         shrinkWrap: true,
         itemCount: searchSnapshot.docs.length,
         itemBuilder: (context, index) {
-          return SearchTile( //No idea how this works but it does LOL
-            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(','),
-                searchSnapshot.docs[index].data().toString().indexOf('}')).replaceAll('email: ', '').replaceAll('}', '').replaceAll(',', ''),
-            searchSnapshot.docs[index].data().toString().substring(searchSnapshot.docs[index].data().toString().indexOf(':'),
-                searchSnapshot.docs[index].data().toString().indexOf(',')).replaceAll('name: ', '').replaceAll('}', '').replaceAll(':', ''),
+          return SearchTile(
+              searchSnapshot.docs[index]["Username"],
+            searchSnapshot.docs[index]["chatroomId"],
           );
         }) : Container();
   }
