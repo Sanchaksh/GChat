@@ -51,8 +51,8 @@ class _SearchScreenState extends State<SearchScreen> {
         itemCount: searchSnapshot.docs.length,
         itemBuilder: (context, index) {
           return SearchTile(
-            name: searchSnapshot.docs[index]["name"],
-            chatroomId: searchSnapshot.docs[index]["chatroomId"],
+            searchSnapshot.documents[index]["userName"],
+            searchSnapshot.documents[index]["userEmail"],
           );
         }) : Container();
   }
