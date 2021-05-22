@@ -10,8 +10,7 @@ The application can be tested by USB debugging option or you can download and us
 
 Use the test folder file for testing the application.
 
-![WhatsApp Image 2021-05-20 at 1 08 07 AM (1)](https://user-images.githubusercontent.com/43877199/118874170-38473600-b908-11eb-8dd7-3a0eaf92e006.jpeg) 
-![WhatsApp Image 2021-05-20 at 1 08 07 AM](https://user-images.githubusercontent.com/43877199/118874395-7cd2d180-b908-11eb-8dd2-176824cd07b2.jpeg)
+![WhatsApp Image 2021-05-20 at 1 08 07 AM (1)](https://user-images.githubusercontent.com/43877199/118874170-38473600-b908-11eb-8dd7-3a0eaf92e006.jpeg)![WhatsApp Image 2021-05-20 at 1 08 07 AM](https://user-images.githubusercontent.com/43877199/118874395-7cd2d180-b908-11eb-8dd2-176824cd07b2.jpeg)
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (2)](https://user-images.githubusercontent.com/43877199/118874181-3a10f980-b908-11eb-8c7c-3b5d21e17690.jpeg)
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (3)](https://user-images.githubusercontent.com/43877199/118874521-a1c74480-b908-11eb-8e54-30cbaad3fcd9.jpeg)
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (4)](https://user-images.githubusercontent.com/43877199/118874600-b73c6e80-b908-11eb-84d4-368944e1ded6.jpeg)
