@@ -12,7 +12,9 @@ Use the test folder file for testing the application.
 
 This is the first view of the application on the Pixel 4a Emulator works same on My Redmi Note 10 Pro Max too.
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (1)](https://user-images.githubusercontent.com/43877199/119232518-21d8ee80-bb43-11eb-895a-04a0164db6b9.jpeg) ![WhatsApp Image 2021-05-20 at 1 08 07 AM (2)](https://user-images.githubusercontent.com/43877199/119232545-361ceb80-bb43-11eb-8100-d023ab9c2264.jpeg)
-![WhatsApp Image 2021-05-20 at 1 08 07 AM (3)](https://user-images.githubusercontent.com/43877199/119232616-741a0f80-bb43-11eb-8d36-b2b77f55caec.jpeg)
+![WhatsApp Image 2021-05-20 at 1 08 07 AM (3)](https://user-images.githubusercontent.com/43877199/119232616-741a0f80-bb43-11eb-8d36-b2b77f55caec.jpeg) ![WhatsApp Image 2021-05-20 at 1 08 07 AM (4)](https://user-images.githubusercontent.com/43877199/119232633-7e3c0e00-bb43-11eb-9942-b73e19e92d64.jpeg)
+![WhatsApp Image 2021-05-20 at 1 08 07 AM (5)](https://user-images.githubusercontent.com/43877199/119232640-8d22c080-bb43-11eb-95d3-b725ae021b26.jpeg)
+
 
 
 
