@@ -24,7 +24,11 @@ Use the test folder file for testing the application.
 For Setup look for the links below.
 ```
 - [Download flutter for any operating system](https://flutter.dev/docs/get-started/install)
+```
+```
 - [Download Android studio](https://developer.android.com/studio)
+```
+```
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 ```
