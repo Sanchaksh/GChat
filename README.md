@@ -22,11 +22,12 @@ Use the test folder file for testing the application.
 
 ## A few resources to get you started if this is your first Flutter project:
 For Setup look for the links below.
+```
 - [Download flutter for any operating system](https://flutter.dev/docs/get-started/install)
 - [Download Android studio](https://developer.android.com/studio)
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
+```
 
 This is the first view of the application on the Pixel 4a Emulator works same on My Redmi Note 10 Pro Max too.
 ## Developed the sign in and sign up UI pages for the GChat application.
