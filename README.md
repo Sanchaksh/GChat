@@ -15,7 +15,7 @@ This is the first view of the application on the Pixel 4a Emulator works same on
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (2)](https://user-images.githubusercontent.com/43877199/118874181-3a10f980-b908-11eb-8c7c-3b5d21e17690.jpeg)
 
 ![WhatsApp Image 2021-05-20 at 1 08 07 AM (4)](https://user-images.githubusercontent.com/43877199/118874600-b73c6e80-b908-11eb-84d4-368944e1ded6.jpeg)
-![WhatsApp Image 2021-05-20 at 1 08 07 AM (5)](https://user-images.githubusercontent.com/43877199/118874728-da671e00-b908-11eb-8865-15c875f6598d.jpeg)
+
 
 
 
