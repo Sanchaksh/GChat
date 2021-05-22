@@ -12,13 +12,6 @@ Use the test folder file for testing the application.
 
 This is the first view of the application on the Pixel 4a Emulator works same on My Redmi Note 10 Pro Max too.
 
-![WhatsApp Image 2021-05-20 at 1 08 07 AM (2)](https://user-images.githubusercontent.com/43877199/118874181-3a10f980-b908-11eb-8c7c-3b5d21e17690.jpeg)
-
-
-
-
-
-
 ## A few resources to get you started if this is your first Flutter project:
 For Setup look for the links below.
 - [Download flutter for any operating system](https://flutter.dev/docs/get-started/install)
