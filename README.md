@@ -1,6 +1,6 @@
 # Gchat - The Chatting Application
 
-A Flutter project for chatting. I used Android Studio and you can you any editor of your choice for ex: VS Code, IntelliJ, etc.
+An application for chatting. I used Android Studio and you can you any editor of your choice for ex: VS Code, IntelliJ, etc. 
 
 ## Getting Started
 
